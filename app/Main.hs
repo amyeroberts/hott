@@ -13,6 +13,12 @@ myButLast [x, _] = Just x
 myButLast (_:xs) = myButLast xs
 myButLast [] = Nothing
 
+-- Problem 3
+elementAt :: [a] -> Int -> Maybe a
+elementAt (x:_) 1 = Just x
+elementAt (_:xs) z = elementAt xs  (z - 1)
+elementAt [] _ = Nothing
+
 main :: IO ()
 main = do
     -- -- Problem
@@ -21,5 +27,8 @@ main = do
     -- let y = myLast ([] :: [Int])
     -- print y
 
-    let z = myButLast ([1, 2, 3, 4, 5] :: [Int])
-    print z
+    -- let z = myButLast ([1, 2, 3, 4, 5] :: [Int])
+    -- print z
+
+    let x = elementAt [1, 2, 3, 4, 5] 3
+    print x
