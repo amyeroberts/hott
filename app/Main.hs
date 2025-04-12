@@ -24,6 +24,11 @@ myLength :: [a] -> Int
 myLength [] = 0
 myLength (_:y) = 1 + myLength y
 
+-- Problem 5
+myReverse :: [a] -> [a]
+myReverse [] = []
+myReverse (x:xs) = myReverse xs ++ [x]
+
 main :: IO ()
 main = do
     -- -- Problem
@@ -38,6 +43,9 @@ main = do
     -- let x = elementAt [1, 2, 3, 4, 5] 3
     -- print x
 
-    let x = myLength [1, 2, 3, 4, 5]
+    -- let x = myLength [1, 2, 3, 4, 5]
     -- let x = myLength "Hello, world!"
+    -- print x
+
+    let x = myReverse "Hello, world!"
     print x
