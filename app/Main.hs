@@ -19,6 +19,11 @@ elementAt (x:_) 1 = Just x
 elementAt (_:xs) z = elementAt xs  (z - 1)
 elementAt [] _ = Nothing
 
+-- Problem 4
+myLength :: [a] -> Int
+myLength [] = 0
+myLength (_:y) = 1 + myLength y
+
 main :: IO ()
 main = do
     -- -- Problem
@@ -30,5 +35,9 @@ main = do
     -- let z = myButLast ([1, 2, 3, 4, 5] :: [Int])
     -- print z
 
-    let x = elementAt [1, 2, 3, 4, 5] 3
+    -- let x = elementAt [1, 2, 3, 4, 5] 3
+    -- print x
+
+    let x = myLength [1, 2, 3, 4, 5]
+    -- let x = myLength "Hello, world!"
     print x
