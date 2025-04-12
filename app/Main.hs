@@ -29,6 +29,10 @@ myReverse :: [a] -> [a]
 myReverse [] = []
 myReverse (x:xs) = myReverse xs ++ [x]
 
+-- Problem 6
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome x = x == myReverse x
+
 main :: IO ()
 main = do
     -- -- Problem
@@ -47,5 +51,10 @@ main = do
     -- let x = myLength "Hello, world!"
     -- print x
 
-    let x = myReverse "Hello, world!"
-    print x
+    -- let x = myReverse "Hello, world!"
+    -- print x
+
+    -- let y = isPalindrome "Hello, world!"
+    -- print y
+    let y = isPalindrome "hannah"
+    print y
