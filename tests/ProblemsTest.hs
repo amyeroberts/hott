@@ -103,6 +103,22 @@ testIsPalindromeString = TestCase $ do
     let result = isPalindrome "madamimadam"
     assertEqual "should return True" True result
 
+-- Problem 7
+testFlattenSingleElem :: Test
+testFlattenSingleElem = TestCase $ do
+    let result = flatten (Elem 5)
+    assertEqual "should return [5]" [5] result
+
+testFlattenEmptyList :: Test
+testFlattenEmptyList = TestCase $ do
+    let result = flatten (List [])
+    assertEqual "should return []" ([] :: [Integer]) result
+
+testFlattenNestedList :: Test
+testFlattenNestedList = TestCase $ do
+    let result = flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])
+    assertEqual "should return []" [1,2,3,4,5] result
+
 
 tests :: Test
 tests = TestList [
@@ -124,7 +140,11 @@ tests = TestList [
     TestLabel "testMyReverseEmpty" testMyReverseEmpty,
     TestLabel "testIsPalindromeSimpleList" testIsPalindromeSimpleList,
     TestLabel "testIsPalindromeList" testIsPalindromeList,
-    TestLabel "testIsPalindromeString" testIsPalindromeString]
+    TestLabel "testIsPalindromeString" testIsPalindromeString,
+    TestLabel "testFlattenSingleElem" testFlattenSingleElem,
+    TestLabel "testFlattenEmptyList" testFlattenEmptyList,
+    TestLabel "testFlattenNestedList" testFlattenNestedList
+    ]
 
 main :: IO ()
 main = do
