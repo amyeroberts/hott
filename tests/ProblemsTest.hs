@@ -119,6 +119,27 @@ testFlattenNestedList = TestCase $ do
     let result = flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])
     assertEqual "should return []" [1,2,3,4,5] result
 
+-- Problem 8
+testCompressEmptyString :: Test
+testCompressEmptyString = TestCase $ do
+    let result = compress ""
+    assertEqual "should return ''" "" result
+
+testCompressEmptyList :: Test
+testCompressEmptyList = TestCase $ do
+    let result = compress [] :: [Integer]
+    assertEqual "should return []" [] result
+
+testCompressString :: Test
+testCompressString = TestCase $ do
+    let result = compress "aaaabccaadeeee"
+    assertEqual "should return abcade" "abcade" result
+
+testCompressList :: Test
+testCompressList = TestCase $ do
+    let result = compress [1, 1, 2, 1, 1, 3, 3, 2, 2]
+    assertEqual "should return [1, 2, 1, 3, 2]" [1, 2, 1, 3, 2]  result
+
 
 tests :: Test
 tests = TestList [

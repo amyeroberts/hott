@@ -40,3 +40,11 @@ flatten :: NestedList a -> [a]
 flatten (Elem a) = [a]
 flatten (List []) = []
 flatten (List (x:xs)) = flatten x ++ flatten (List xs)
+
+-- Problem 8
+compress :: Eq a => [a] -> [a]
+compress [] = []
+compress [x] = [x]
+compress (x:y:z)
+    | x == y = compress (x:z)
+    | otherwise = x:compress (y:z)
